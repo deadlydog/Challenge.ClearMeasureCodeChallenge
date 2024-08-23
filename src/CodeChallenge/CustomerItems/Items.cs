@@ -12,7 +12,6 @@ namespace CustomerItems
 				throw new ArgumentException($"Upper bound must be between 1 and Int.MaxValue. Value passed in was '{numberOfItemsToGet}'.");
 			}
 
-			var items = new List<string>();
 			for (int index = 1; index <= numberOfItemsToGet; index++)
 			{
 				if (index < 0)
@@ -20,9 +19,8 @@ namespace CustomerItems
 					break;
 				}
 
-				items.Add(ItemMapper.GetItemTranslatedValue(index));
+				yield return ItemMapper.GetItemTranslatedValue(index);
 			}
-			return items;
 		}
 	}
 }
