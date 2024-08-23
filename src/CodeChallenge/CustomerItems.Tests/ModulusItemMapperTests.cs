@@ -202,7 +202,7 @@ public class ModulusItemMapperTests
 		}
 
 		[Fact]
-		public void MappingAnItem_WhenDivisibleByTwoNumbers_ShouldReturnBothNumbersInOrder()
+		public void MappingAnItem_WhenDivisibleByTwoNumbers_ShouldReturnBothMappingsInOrder()
 		{
 			var sut = CreateSutWithDescendingMappings();
 			var input = 9;
@@ -213,7 +213,7 @@ public class ModulusItemMapperTests
 		}
 
 		[Fact]
-		public void MappingAnItem_WhenDivisibleByThreeNumbers_ShouldReturnAllNumbersInOrder()
+		public void MappingAnItem_WhenDivisibleByThreeNumbers_ShouldReturnAllMappingsInOrder()
 		{
 			var sut = CreateSutWithDescendingMappings();
 			var input = 63;
@@ -240,7 +240,7 @@ public class ModulusItemMapperTests
 		}
 
 		[Fact]
-		public void MappingAnItem_WhenDivisibleByMultipleNumbers_ShouldReturnAllNumbersInOrder()
+		public void MappingAnItem_WhenDivisibleByMultipleNumbers_ShouldReturnAllMappingsInOrder()
 		{
 			var sut = CreateSutWithDescendingMappings();
 			var input = 945; // 7 * 3 * 9 * 5 = 945
