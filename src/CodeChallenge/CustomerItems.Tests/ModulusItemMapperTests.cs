@@ -29,7 +29,7 @@ public class ModulusItemMapperTests
 	// These "Daniel Schroeder" tests could be removed, but since they were a requirement in the original challenge, I've kept them.
 	public class WhenUsingDanielSchroederMappings()
 	{
-		private List<ItemMapping> DanielSchroederMappings = new()
+		private readonly List<ItemMapping> DanielSchroederMappings = new()
 		{
 			new ItemMapping(3, "Daniel"),
 			new ItemMapping(5, "Schroeder")
@@ -96,7 +96,7 @@ public class ModulusItemMapperTests
 
 	public class WhenUsingManyAscendingOrderedMappings()
 	{
-		private List<ItemMapping> AscendingMappings = new()
+		private readonly List<ItemMapping> AscendingMappings = new()
 		{
 			new ItemMapping(3, "Three"),
 			new ItemMapping(5, "Five"),
@@ -167,7 +167,7 @@ public class ModulusItemMapperTests
 
 	public class WhenUsingManyDescendingOrderedMappings()
 	{
-		private List<ItemMapping> DescendingMappings = new()
+		private readonly List<ItemMapping> DescendingMappings = new()
 		{
 			new ItemMapping(9, "Nine"),
 			new ItemMapping(7, "Seven"),
@@ -227,7 +227,7 @@ public class ModulusItemMapperTests
 
 	public class WhenUsingManyOutOfOrderMappings()
 	{
-		private List<ItemMapping> DescendingMappings = new()
+		private readonly List<ItemMapping> DescendingMappings = new()
 		{
 			new ItemMapping(7, "Seven"),
 			new ItemMapping(3, "Three"),
