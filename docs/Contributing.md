@@ -4,7 +4,7 @@ Feel free to open an issue or pull request.
 
 ## 🛠 Tech stack
 
-LIST THE TECHNOLOGIES USED IN THIS PROJECT
+This is a C# project that uses .NET 8 for the console app, and produces a .NET Standard 2.0 NuGet package.
 
 ## 🏃‍♂️ Building and running locally
 
@@ -12,7 +12,7 @@ DESCRIBE HOW TO BUILD, RUN, AND DEBUG THE PROJECT LOCALLY
 
 ## 🏗 Build and deployment pipelines
 
-DESCRIBE HOW NEW BUILDS AND DEPLOYMENTS ARE CREATED, AND HOW VERSIONING IS DONE
+Automated build and deployment pipelines that create and version the NuGet package have not been created yet.
 
 ## ⁉ Why was a specific decision made
 
