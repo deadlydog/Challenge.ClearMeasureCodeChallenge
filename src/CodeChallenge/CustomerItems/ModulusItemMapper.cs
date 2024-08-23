@@ -4,15 +4,15 @@ namespace CustomerItems
 {
 	public record ItemMapping(int Number, string Value);
 
-	public class DefaultItemMapper : IMapItems
+	public class ModulusItemMapper : IMapItems
 	{
 		private IEnumerable<ItemMapping> _itemMappings = Enumerable.Empty<ItemMapping>();
 
-		public DefaultItemMapper()
+		public ModulusItemMapper()
 			: this(Enumerable.Empty<ItemMapping>())
 		{ }
 
-		public DefaultItemMapper(IEnumerable<ItemMapping> itemMappings)
+		public ModulusItemMapper(IEnumerable<ItemMapping> itemMappings)
 		{
 			_itemMappings = itemMappings ?? throw new ArgumentNullException(nameof(itemMappings));
 		}

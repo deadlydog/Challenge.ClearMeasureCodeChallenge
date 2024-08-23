@@ -2,12 +2,12 @@ using FluentAssertions;
 
 namespace CustomerItems.Tests;
 
-public class DefaultItemMapperTests
+public class ModulusItemMapperTests
 {
 	[Fact]
 	public void MappingAnItem_WhenNotDivisibleBy3Or5_ShouldReturnTheNumber()
 	{
-		var sut = new DefaultItemMapper();
+		var sut = new ModulusItemMapper();
 		var input = 1;
 
 		var result = sut.MapItem(input);
@@ -22,7 +22,7 @@ public class DefaultItemMapperTests
 	[InlineData(12)]
 	public void MappingAnItem_WhenDivisibleBy3AndNot5_ShouldReturnDaniel(int number)
 	{
-		var sut = new DefaultItemMapper();
+		var sut = new ModulusItemMapper();
 
 		var result = sut.MapItem(number);
 
@@ -36,7 +36,7 @@ public class DefaultItemMapperTests
 	[InlineData(25)]
 	public void MappingAnItem_WhenDivisibleBy5AndNot3_ShouldReturnSchroeder(int number)
 	{
-		var sut = new DefaultItemMapper();
+		var sut = new ModulusItemMapper();
 
 		var result = sut.MapItem(number);
 
@@ -50,7 +50,7 @@ public class DefaultItemMapperTests
 	[InlineData(60)]
 	public void MappingAnItem_WhenDivisibleBy3And5_ShouldReturnDanielSchroeder(int number)
 	{
-		var sut = new DefaultItemMapper();
+		var sut = new ModulusItemMapper();
 
 		var result = sut.MapItem(number);
 
@@ -60,7 +60,7 @@ public class DefaultItemMapperTests
 	[Fact]
 	public void MappingAnItem_WhenItsLarge_ItDoesNotCrash()
 	{
-		var sut = new DefaultItemMapper();
+		var sut = new ModulusItemMapper();
 		var input = int.MaxValue;
 
 		var result = sut.MapItem(input);

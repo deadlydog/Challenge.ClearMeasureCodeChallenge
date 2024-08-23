@@ -10,7 +10,7 @@ namespace CustomerItems
 		public IMapItems _itemMapper;
 
 		public Items()
-			: this(new DefaultItemMapper())
+			: this(new ModulusItemMapper())
 		{ }
 
 		public Items(IMapItems itemMapper)
