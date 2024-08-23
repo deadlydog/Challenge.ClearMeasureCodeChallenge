@@ -4,6 +4,17 @@ namespace CustomerItems.Tests;
 
 public class ModulusItemMapperTests
 {
+	private List<ItemMapping> DanielSchroederMappings = new()
+	{
+		new ItemMapping(3, "Daniel"),
+		new ItemMapping(5, "Schroeder")
+	};
+
+	private ModulusItemMapper CreateSutWithDanielSchroederMappings()
+	{
+		return new ModulusItemMapper(DanielSchroederMappings);
+	}
+
 	[Fact]
 	public void MappingAnItem_WhenNotDivisibleBy3Or5_ShouldReturnTheNumber()
 	{
@@ -22,7 +33,7 @@ public class ModulusItemMapperTests
 	[InlineData(12)]
 	public void MappingAnItem_WhenDivisibleBy3AndNot5_ShouldReturnDaniel(int number)
 	{
-		var sut = new ModulusItemMapper();
+		var sut = CreateSutWithDanielSchroederMappings();
 
 		var result = sut.MapItem(number);
 
@@ -36,7 +47,7 @@ public class ModulusItemMapperTests
 	[InlineData(25)]
 	public void MappingAnItem_WhenDivisibleBy5AndNot3_ShouldReturnSchroeder(int number)
 	{
-		var sut = new ModulusItemMapper();
+		var sut = CreateSutWithDanielSchroederMappings();
 
 		var result = sut.MapItem(number);
 
@@ -50,7 +61,7 @@ public class ModulusItemMapperTests
 	[InlineData(60)]
 	public void MappingAnItem_WhenDivisibleBy3And5_ShouldReturnDanielSchroeder(int number)
 	{
-		var sut = new ModulusItemMapper();
+		var sut = CreateSutWithDanielSchroederMappings();
 
 		var result = sut.MapItem(number);
 
