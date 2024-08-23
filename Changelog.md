@@ -2,16 +2,6 @@
 
 This page is a list of _notable_ changes made in each version.
 
-## v1.0.0 - January 1, 2099
+## v1.0.0 - August 23, 2024
 
-Features:
-
-- Initial release
-
-Fixes:
-
-- Fixes
-
-Community contributions:
-
-- @person: Contribution
+- Initial submission of the Clear Measure Code Challenge solution.
