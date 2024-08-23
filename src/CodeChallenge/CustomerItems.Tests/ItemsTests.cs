@@ -21,4 +21,18 @@ public class ItemsTests
 		// Assert.
 		result.Count().Should().Be(numberOfItemsToGet);
 	}
+
+	[Fact]
+	public void GettingItems_WhenGivenANegativeNumberToGet_ShouldThrowAnArgumentException()
+	{
+		// Arrange.
+		var sut = new Items();
+		int numberOfItemsToGet = -1;
+
+		// Act.
+		Action act = () => sut.GetItems(numberOfItemsToGet);
+
+		// Assert.
+		act.Should().Throw<ArgumentException>();
+	}
 }
