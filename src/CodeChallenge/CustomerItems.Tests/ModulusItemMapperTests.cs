@@ -26,6 +26,7 @@ public class ModulusItemMapperTests
 		}
 	}
 
+	// These "Daniel Schroeder" tests could be removed, but since they were a requirement in the original challenge, I've kept them.
 	public class WhenUsingDanielSchroederMappings()
 	{
 		private List<ItemMapping> DanielSchroederMappings = new()
@@ -213,7 +214,7 @@ public class ModulusItemMapperTests
 		}
 
 		[Fact]
-		public void MappingAnItem_WhenDivisibleByThreeNumbers_ShouldReturnAllMappingsInOrder()
+		public void MappingAnItem_WhenDivisibleByThreeNumbers_ShouldReturnAllThreeMappingsInOrder()
 		{
 			var sut = CreateSutWithDescendingMappings();
 			var input = 63;
