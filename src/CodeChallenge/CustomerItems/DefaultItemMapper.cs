@@ -1,35 +1,40 @@
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace CustomerItems
 {
-	public interface IMapItems
-	{
-		public string MapItem(int number);
-	}
+	public record ItemMapping(int Number, string Value);
 
 	public class DefaultItemMapper : IMapItems
 	{
+		private IEnumerable<ItemMapping> _itemMappings = Enumerable.Empty<ItemMapping>();
+
+		public DefaultItemMapper()
+			: this(Enumerable.Empty<ItemMapping>())
+		{ }
+
+		public DefaultItemMapper(IEnumerable<ItemMapping> itemMappings)
+		{
+			_itemMappings = itemMappings ?? throw new ArgumentNullException(nameof(itemMappings));
+		}
+
 		public string MapItem(int number)
 		{
-			string value = string.Empty;
-			if (number % 3 == 0)
+			StringBuilder value = new();
+
+			foreach (var itemMapping in _itemMappings)
 			{
-				value += "Daniel";
+				if (number % itemMapping.Number == 0)
+				{
+					value.AppendFormat("{0} ", itemMapping.Value);
+				}
 			}
 
-			if (number % 5 == 0)
+			if (value.Length == 0)
 			{
-				value += " Schroeder";
+				value.Append(number.ToString());
 			}
 
-			if (string.Equals(value, string.Empty, StringComparison.OrdinalIgnoreCase))
-			{
-				value = number.ToString();
-			}
-
-			return value.Trim();
+			return value.ToString().Trim();
 		}
 	}
 }

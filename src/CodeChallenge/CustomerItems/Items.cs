@@ -1,8 +1,10 @@
-using System;
-using System.Collections.Generic;
-
 namespace CustomerItems
 {
+	public interface IMapItems
+	{
+		public string MapItem(int number);
+	}
+
 	public class Items
 	{
 		public IMapItems _itemMapper;
@@ -13,7 +15,7 @@ namespace CustomerItems
 
 		public Items(IMapItems itemMapper)
 		{
-			_itemMapper = itemMapper ?? throw new ArgumentNullException();
+			_itemMapper = itemMapper ?? throw new ArgumentNullException(nameof(itemMapper));
 		}
 
 		public IEnumerable<string> GetItems(int numberOfItemsToGet)
