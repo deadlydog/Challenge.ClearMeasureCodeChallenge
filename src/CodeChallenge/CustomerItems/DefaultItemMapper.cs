@@ -4,9 +4,14 @@ using System.Text;
 
 namespace CustomerItems
 {
-	public static class ItemMapper
+	public interface IMapItems
 	{
-		public static string GetItemTranslatedValue(int number)
+		public string MapItem(int number);
+	}
+
+	public class DefaultItemMapper : IMapItems
+	{
+		public string MapItem(int number)
 		{
 			string value = string.Empty;
 			if (number % 3 == 0)

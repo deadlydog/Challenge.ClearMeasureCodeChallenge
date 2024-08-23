@@ -5,6 +5,17 @@ namespace CustomerItems
 {
 	public class Items
 	{
+		public IMapItems _itemMapper;
+
+		public Items()
+			: this(new DefaultItemMapper())
+		{ }
+
+		public Items(IMapItems itemMapper)
+		{
+			_itemMapper = itemMapper ?? throw new ArgumentNullException();
+		}
+
 		public IEnumerable<string> GetItems(int numberOfItemsToGet)
 		{
 			if (numberOfItemsToGet < 0)
@@ -14,7 +25,7 @@ namespace CustomerItems
 
 			for (int index = 1; index <= numberOfItemsToGet; index++)
 			{
-				yield return ItemMapper.GetItemTranslatedValue(index);
+				yield return _itemMapper.MapItem(index);
 			}
 		}
 	}
