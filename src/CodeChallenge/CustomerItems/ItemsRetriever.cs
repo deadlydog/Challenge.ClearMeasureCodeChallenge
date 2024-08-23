@@ -20,9 +20,9 @@ namespace CustomerItems
 
 		public IEnumerable<string> GetItems(int numberOfItemsToGet)
 		{
-			if (numberOfItemsToGet < 0)
+			if (numberOfItemsToGet < 1)
 			{
-				throw new ArgumentException($"Number of items to get must be greater than zero. Value passed in was '{numberOfItemsToGet}'.");
+				throw new ArgumentException($"Number of items to get must be greater than zero. Value passed in was '{numberOfItemsToGet}'.", nameof(numberOfItemsToGet));
 			}
 
 			for (int index = 1; index <= numberOfItemsToGet; index++)
