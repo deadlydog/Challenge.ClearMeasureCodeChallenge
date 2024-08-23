@@ -1,13 +1,13 @@
 using FluentAssertions;
 
 namespace CustomerItems.Tests;
-public class ItemsTests
+public class ItemsRetrieverTests
 {
 	[Fact]
 	public void GettingItems_WhenGivenANumberOfItemsToGet_ShouldReturnThatNumberOfItems()
 	{
 		// Arrange.
-		var sut = new Items();
+		var sut = new ItemsRetriever();
 		int numberOfItemsToGet = 100;
 
 		// Act.
@@ -21,7 +21,7 @@ public class ItemsTests
 	public void GettingItems_WhenGivenANegativeNumberToGet_ShouldThrowAnArgumentException()
 	{
 		// Arrange.
-		var sut = new Items();
+		var sut = new ItemsRetriever();
 		int numberOfItemsToGet = -1;
 
 		// Act.

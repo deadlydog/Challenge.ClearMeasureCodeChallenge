@@ -5,15 +5,15 @@ namespace CustomerItems
 		public string MapItem(int number);
 	}
 
-	public class Items
+	public class ItemsRetriever
 	{
 		public IMapItems _itemMapper;
 
-		public Items()
+		public ItemsRetriever()
 			: this(new ModulusItemMapper())
 		{ }
 
-		public Items(IMapItems itemMapper)
+		public ItemsRetriever(IMapItems itemMapper)
 		{
 			_itemMapper = itemMapper ?? throw new ArgumentNullException(nameof(itemMapper));
 		}
