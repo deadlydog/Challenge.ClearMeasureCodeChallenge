@@ -4,7 +4,9 @@ Feel free to open an issue or pull request.
 
 ## 🛠 Tech stack
 
-This is a C# project that uses .NET 8 for the console app, and produces a .NET Standard 2.0 NuGet package.
+This is a C# project that uses .NET 8 for the console app, and produces a .NET 8.0 NuGet package.
+.NET 8 was chosen over .NET Standard 2.0 to use the latest language features (e.g. records).
+If backward compatibility is needed, consider using .NET Standard 2.0.
 
 ## 🏃‍♂️ Building and running locally
 
