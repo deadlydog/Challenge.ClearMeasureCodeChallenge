@@ -25,7 +25,23 @@ public class ItemsRetrieverTests
 		int numberOfItemsToGet = -1;
 
 		// Act.
-		Action act = () => sut.GetItems(numberOfItemsToGet);
+		Action act = () => sut.GetItems(numberOfItemsToGet).ToArray();
+
+		// Assert.
+		act.Should().Throw<ArgumentException>();
+	}
+
+	[Fact]
+	public void GettingItems_WhenGivenZeroItemsToGet_ShouldThrowAnArgumentException()
+	{
+		// Arrange.
+		var sut = new ItemsRetriever();
+		int numberOfItemsToGet = 0;
+
+		var result = sut.GetItems(numberOfItemsToGet);
+
+		// Act.
+		Action act = () => sut.GetItems(numberOfItemsToGet).ToArray();
 
 		// Assert.
 		act.Should().Throw<ArgumentException>();
