@@ -1,5 +1,8 @@
 using System.Text;
 
+// Required to use C# 9 features (e.g. record) in .NET Standard 2.0 for older target frameworks.
+namespace System.Runtime.CompilerServices { internal class IsExternalInit { } }
+
 namespace CustomerItems
 {
 	public record ItemMapping(int Number, string Value);
