@@ -36,7 +36,7 @@ process {
 		Clean-Solution -path $SolutionOrProjectPaths
 		Restore-NugetPackages -path $SolutionOrProjectPaths
 		Build-Solution -path $SolutionOrProjectPaths -versionNumber $VersionNumber
-		Test-Solution -path $SolutionOrProjectPaths
+		Test-Solution -path $SolutionOrProjectPaths -publishTestResultsPath $PublishArtifactsPath
 		Publish-Solution -path $SolutionOrProjectPaths -versionNumber $VersionNumber -publishArtifactsPath $PublishArtifactsPath
 
 		Write-Status "Build script completed successfully."
@@ -97,11 +97,11 @@ begin {
 		}
 	}
 
-	function Test-Solution([string[]] $paths) {
+	function Test-Solution([string[]] $paths, [string] $publishTestResultsPath) {
 		foreach ($path in $paths) {
 			Write-Status "Testing '$(Split-Path -Path $path -Leaf)'."
 			Invoke-CommandAndThrowAnyErrors {
-				& dotnet test "$path"
+				& dotnet test "$path" --no-build --no-restore --configuration Release
 			}
 		}
 	}
@@ -110,7 +110,7 @@ begin {
 		foreach ($path in $paths) {
 			Write-Status "Publishing '$(Split-Path -Path $path -Leaf)'."
 			Invoke-CommandAndThrowAnyErrors {
-				& dotnet publish "$path" -p:AssemblyVersion=$versionNumber -p:Version=$versionNumber --configuration Release --artifacts-path "$publishArtifactsPath"
+				& dotnet publish "$path" --configuration Release -p:AssemblyVersion=$versionNumber -p:Version=$versionNumber --artifacts-path "$publishArtifactsPath"
 			}
 		}
 	}
