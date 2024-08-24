@@ -15,7 +15,7 @@ param (
 
 	[Parameter(Mandatory = $false, HelpMessage = 'The version number to use for the build.')]
 	[ValidateScript({ $_ -match '^\d+\.\d+\.\d+(.\d+)?$' })] # Must be in the format of '1.0.0' or '1.0.0.0'.
-	[string] $VersionNumber = '2.0.0',
+	[string] $VersionNumber = '1.0.0',
 
 	[Parameter(Mandatory = $false, HelpMessage = 'If provided, the script will not prompt for input before completing.')]
 	[switch] $NoPromptBeforeExiting = $false
@@ -35,9 +35,9 @@ process {
 		Remove-PublishedArtifacts -path $PublishArtifactsPath
 		Clean-Solution -path $SolutionOrProjectPaths
 		Restore-NugetPackages -path $SolutionOrProjectPaths
-		Build-Solution -path $SolutionOrProjectPaths
+		Build-Solution -path $SolutionOrProjectPaths -versionNumber $VersionNumber
 		Test-Solution -path $SolutionOrProjectPaths
-		Publish-Solution -path $SolutionOrProjectPaths -publishArtifactsPath $PublishArtifactsPath
+		Publish-Solution -path $SolutionOrProjectPaths -versionNumber $VersionNumber -publishArtifactsPath $PublishArtifactsPath
 
 		Write-Status "Build script completed successfully."
 	}
@@ -92,7 +92,7 @@ begin {
 		foreach ($path in $paths) {
 			Write-Status "Building '$(Split-Path -Path $path -Leaf)'."
 			Invoke-CommandAndThrowAnyErrors {
-				& dotnet build "$path" -p:Version=$versionNumber --configuration Release
+				& dotnet build "$path" -p:AssemblyVersion=$versionNumber -p:Version=$versionNumber --configuration Release
 			}
 		}
 	}
@@ -106,11 +106,11 @@ begin {
 		}
 	}
 
-	function Publish-Solution([string[]] $paths, [string] $publishArtifactsPath) {
+	function Publish-Solution([string[]] $paths, [string] $versionNumber, [string] $publishArtifactsPath) {
 		foreach ($path in $paths) {
 			Write-Status "Publishing '$(Split-Path -Path $path -Leaf)'."
 			Invoke-CommandAndThrowAnyErrors {
-				& dotnet publish "$path" --artifacts-path "$publishArtifactsPath"
+				& dotnet publish "$path" -p:AssemblyVersion=$versionNumber -p:Version=$versionNumber --configuration Release --artifacts-path "$publishArtifactsPath"
 			}
 		}
 	}
@@ -119,7 +119,7 @@ begin {
 		# If running in the console, wait for input before closing.
 		if ($Host.Name -eq "ConsoleHost") {
 			Write-Host $message
-			$Host.UI.RawUI.FlushInputBuffer()   # Make sure buffered input doesn't "press a key" and skip the ReadKey().
+			$Host.UI.RawUI.FlushInputBuffer() # Make sure buffered input doesn't "press a key" and skip the ReadKey().
 			$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyUp") > $null
 		}
 	}
