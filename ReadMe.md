@@ -14,11 +14,7 @@ We also want to create a build script that can be used to build the NuGet packag
 
 ## 🚀 Quick start
 
-A quick guide on how to get started with this project.
-Install a NuGet Package?
-A link to download the latest version from (releases page, PowerShell Gallery, etc)?
-Code snippets?
-Links to wiki or other documentation.
+To view the code, open the [CodeChallenge.sln](src/CodeChallenge/CodeChallenge.sln) solution in Visual Studio.
 
 ## ✋ How to contribute
 

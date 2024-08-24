@@ -8,7 +8,9 @@ This is a C# project that uses .NET 8 for the console app and tests, and produce
 
 ## 🏃‍♂️ Building and running locally
 
-DESCRIBE HOW TO BUILD, RUN, AND DEBUG THE PROJECT LOCALLY
+The build the project locally, run the [build.cmd](/build.cmd) script in the root of the repository.
+This will clean the solution, build the solution, and run the tests.
+It will create a `BuildArtifacts` directory in the root of the repository that contains the published artifacts.
 
 ## 🏗 Build and deployment pipelines
 
