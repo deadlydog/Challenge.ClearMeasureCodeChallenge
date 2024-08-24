@@ -6,6 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>Daniel Schroeder</Company>
+    <PackageProjectUrl>https://github.com/deadlydog/Challenge.ClearMeasureCodeChallenge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/deadlydog/Challenge.ClearMeasureCodeChallenge</RepositoryUrl>
+    <Description>NuGet package for the Clear Measure Coding Challenge</Description>
+    <Authors>Daniel Schroeder</Authors>
   </PropertyGroup>
 
 </Project>
