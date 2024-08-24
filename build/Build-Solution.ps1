@@ -11,7 +11,7 @@ param (
 	[string[]] $SolutionOrProjectPaths = [string]::Empty,
 
 	[Parameter(Mandatory = $false, HelpMessage = 'The directory path where build artifacts will be published to.')]
-	[string] $PublishArtifactsPath = "$RepositoryRootPath/BuildArtifacts",
+	[string] $PublishArtifactsPath = "$RepositoryBasePath/BuildArtifacts",
 
 	[Parameter(Mandatory = $false, HelpMessage = 'The version number to use for the build.')]
 	[ValidateScript({ $_ -match '^\d+\.\d+\.\d+(.\d+)?$' })] # Must be in the format of '1.0.0' or '1.0.0.0'.
