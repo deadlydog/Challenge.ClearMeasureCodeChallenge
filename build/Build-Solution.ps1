@@ -15,7 +15,7 @@ param (
 
 	[Parameter(Mandatory = $false, HelpMessage = 'The version number to use for the build.')]
 	[ValidateScript({ $_ -match '^\d+\.\d+\.\d+(.\d+)?$' })] # Must be in the format of '1.0.0' or '1.0.0.0'.
-	[string] $VersionNumber = '1.0.0',
+	[string] $VersionNumber = '0.0.1',
 
 	[Parameter(Mandatory = $false, HelpMessage = 'If provided, the script will not prompt for input before completing.')]
 	[switch] $NoPromptBeforeExiting = $false
