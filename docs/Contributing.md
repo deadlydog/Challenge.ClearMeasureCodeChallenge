@@ -8,13 +8,13 @@ This is a C# project that uses .NET 8 for the console app and tests, and produce
 
 ## 🏃‍♂️ Building and running locally
 
-The build the project locally, run the [build.cmd](/build.cmd) script in the root of the repository.
+To build the project locally, run the [build.cmd](/build.cmd) script in the root of the repository.
 This will call the [Build-Solution.ps1](/build/Build-Solution.ps1) script to clean the solution and previous build artifacts, build the solution, and run the tests.
 It will create a `BuildArtifacts` directory in the root of the repository that contains the published artifacts.
 
 ## 🏗 Build and deployment pipelines
 
-Automated build and deployment pipelines that create and version the NuGet package have not been created yet.
+Automated build and deployment pipelines that create, version, and publish the NuGet package have not been created yet.
 
 ## ⁉ Why was a specific decision made
 

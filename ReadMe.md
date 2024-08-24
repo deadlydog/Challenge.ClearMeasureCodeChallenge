@@ -15,15 +15,13 @@ We also want to create a build script that can be used to build the NuGet packag
 ## 🚀 Quick start
 
 To view the code, open the [CodeChallenge.sln](src/CodeChallenge/CodeChallenge.sln) solution in Visual Studio.
-Assuming the `CodeChallenge.Console` project is set as the startup project, you can run the app to see the sample output.
+Assuming the `CodeChallenge.Console` project is set as the startup project, you can run the app to see the sample output produced by the [Program.cs file](src/CodeChallenge/CodeChallenge.Console/Program.cs).
 
 ### Using the NuGet library
 
 Once you have the NuGet package installed on your project, you can use the default `ModulusItemMapper` class to map items, like this:
 
 ```csharp
-using CustomerItems;
-
 List<ItemMapping> mappings = new()
 {
   new ItemMapping(3, "DivisibleBy3"),
