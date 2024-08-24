@@ -1,6 +1,6 @@
 <#
 	.SYNOPSIS
-	Script to clean, build, test, and publish a .NET Core solution or project.
+	Script to clean, build, test, and publish a .NET Core solution or project to a local directory.
 #>
 [CmdletBinding()]
 param (
@@ -49,11 +49,11 @@ process {
 
 begin {
 	function Find-SolutionOrProjectFiles([string] $path) {
-		$files = Get-ChildItem -Path $path -Recurse -Include *.sln
+		$files = Get-ChildItem -Path $path -Recurse -Include '*.sln'
 
 		if ($files.Count -eq 0) {
 			Write-Verbose "No solution files found in the path '$path'. Searching for project files instead."
-			$files = Get-ChildItem -Path $path -Recurse -Include *.csproj
+			$files = Get-ChildItem -Path $path -Recurse -Include '*.csproj'
 		}
 
 		if ($files.Count -eq 0) {
@@ -65,7 +65,7 @@ begin {
 
 	function Remove-PublishedArtifacts([string] $path) {
 		if (Test-Path $path -PathType Container) {
-			Write-Status "Cleaning published artifacts at '$path'."
+			Write-Status "Removing published artifacts at '$path'."
 			Remove-Item -Path $path -Recurse -Force
 		}
 	}
