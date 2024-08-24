@@ -32,7 +32,7 @@ process {
 			$SolutionOrProjectPaths = Find-SolutionOrProjectFiles -path $RepositoryBasePath
 		}
 
-		Clean-PublishedArtifacts -path $PublishArtifactsPath
+		Remove-PublishedArtifacts -path $PublishArtifactsPath
 		Clean-Solution -path $SolutionOrProjectPaths
 		Restore-NugetPackages -path $SolutionOrProjectPaths
 		Build-Solution -path $SolutionOrProjectPaths
@@ -63,7 +63,7 @@ begin {
 		return $files
 	}
 
-	function Clean-PublishedArtifacts([string] $path) {
+	function Remove-PublishedArtifacts([string] $path) {
 		if (Test-Path $path -PathType Container) {
 			Write-Status "Cleaning published artifacts at '$path'."
 			Remove-Item -Path $path -Recurse -Force
