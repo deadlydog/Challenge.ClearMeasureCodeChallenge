@@ -101,7 +101,7 @@ begin {
 		foreach ($path in $paths) {
 			Write-Status "Testing '$(Split-Path -Path $path -Leaf)'."
 			Invoke-CommandAndThrowAnyErrors {
-				& dotnet test "$path" --no-build --no-restore --configuration Release
+				& dotnet test "$path" --no-build --no-restore --configuration Release --collect:"Code Coverage" --results-directory "$publishTestResultsPath\CodeCoverage"
 			}
 		}
 	}
