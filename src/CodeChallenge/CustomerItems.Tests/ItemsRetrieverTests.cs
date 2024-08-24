@@ -28,7 +28,7 @@ public class ItemsRetrieverTests
 		Action act = () => sut.GetItems(numberOfItemsToGet).ToArray();
 
 		// Assert.
-		act.Should().Throw<ArgumentException>();
+		act.Should().Throw<ArgumentException>().WithMessage("Number of items to get must be greater than zero*");
 	}
 
 	[Fact]
@@ -44,6 +44,19 @@ public class ItemsRetrieverTests
 		Action act = () => sut.GetItems(numberOfItemsToGet).ToArray();
 
 		// Assert.
-		act.Should().Throw<ArgumentException>();
+		act.Should().Throw<ArgumentException>().WithMessage("Number of items to get must be greater than zero*");
+	}
+
+	[Fact]
+	public void CreatingTheInstance_WhenProvidingANullItemMapper_ShouldThrowAnArgumentNullException()
+	{
+		// Arrange.
+		IMapItems itemMapper = null!;
+
+		// Act.
+		Action act = () => new ItemsRetriever(itemMapper);
+
+		// Assert.
+		act.Should().Throw<ArgumentNullException>();
 	}
 }
