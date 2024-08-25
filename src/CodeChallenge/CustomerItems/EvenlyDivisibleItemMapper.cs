@@ -7,15 +7,15 @@ namespace CustomerItems
 {
 	public record ItemMapping(int Number, string Value);
 
-	public class ModulusItemMapper : IMapItems
+	public class EvenlyDivisibleItemMapper : IMapItems
 	{
 		private IEnumerable<ItemMapping> _itemMappings = Enumerable.Empty<ItemMapping>();
 
-		public ModulusItemMapper()
+		public EvenlyDivisibleItemMapper()
 			: this(Enumerable.Empty<ItemMapping>())
 		{ }
 
-		public ModulusItemMapper(IEnumerable<ItemMapping> itemMappings)
+		public EvenlyDivisibleItemMapper(IEnumerable<ItemMapping> itemMappings)
 		{
 			_itemMappings = itemMappings ?? throw new ArgumentNullException(nameof(itemMappings));
 		}

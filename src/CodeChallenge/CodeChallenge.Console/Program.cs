@@ -6,7 +6,7 @@ List<ItemMapping> DanielSchroederMappings = new()
 	new ItemMapping(5, "Schroeder")
 };
 
-var itemRetriever = new ItemsRetriever(new ModulusItemMapper(DanielSchroederMappings));
+var itemRetriever = new ItemsRetriever(new EvenlyDivisibleItemMapper(DanielSchroederMappings));
 var items = itemRetriever.GetItems(100000);
 
 foreach (var item in items)

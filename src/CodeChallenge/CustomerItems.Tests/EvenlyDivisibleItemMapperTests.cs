@@ -2,7 +2,7 @@ using FluentAssertions;
 
 namespace CustomerItems.Tests;
 
-public class ModulusItemMapperTests
+public class EvenlyDivisibleItemMapperTests
 {
 	public class WhenMappingsAreNotProvided()
 	{
@@ -18,7 +18,7 @@ public class ModulusItemMapperTests
 		[InlineData(int.MaxValue)]
 		public void MappingAnItem_WhenTheInputIsPositiveOrNegative_ShouldReturnTheInputNumber(int number)
 		{
-			var sut = new ModulusItemMapper();
+			var sut = new EvenlyDivisibleItemMapper();
 
 			var result = sut.MapItem(number);
 
@@ -57,9 +57,9 @@ public class ModulusItemMapperTests
 			new ItemMapping(3, "Three"),
 		];
 
-		private ModulusItemMapper CreateSut(List<ItemMapping> mappings)
+		private EvenlyDivisibleItemMapper CreateSut(List<ItemMapping> mappings)
 		{
-			return new ModulusItemMapper(mappings);
+			return new EvenlyDivisibleItemMapper(mappings);
 		}
 
 		[Fact]
@@ -138,9 +138,9 @@ public class ModulusItemMapperTests
 			new ItemMapping(5, "Schroeder")
 		};
 
-		private ModulusItemMapper CreateSutWithMappings3Daniel5Schroeder()
+		private EvenlyDivisibleItemMapper CreateSutWithMappings3Daniel5Schroeder()
 		{
-			return new ModulusItemMapper(DanielSchroederMappings);
+			return new EvenlyDivisibleItemMapper(DanielSchroederMappings);
 		}
 
 		[Fact]

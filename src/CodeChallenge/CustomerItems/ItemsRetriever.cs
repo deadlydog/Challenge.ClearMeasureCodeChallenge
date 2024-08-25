@@ -10,7 +10,7 @@ namespace CustomerItems
 		public IMapItems _itemMapper;
 
 		public ItemsRetriever()
-			: this(new ModulusItemMapper())
+			: this(new EvenlyDivisibleItemMapper())
 		{ }
 
 		public ItemsRetriever(IMapItems itemMapper)

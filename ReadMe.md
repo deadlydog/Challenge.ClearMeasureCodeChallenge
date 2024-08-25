@@ -19,7 +19,7 @@ Assuming the `CodeChallenge.Console` project is set as the startup project, you 
 
 ### Using the NuGet library
 
-Once you have the NuGet package installed on your project, you can use the default `ModulusItemMapper` class to map items, like this:
+Once you have the NuGet package installed on your project, you can use the default `EvenlyDivisibleItemMapper` class to map items, like this:
 
 ```csharp
 List<ItemMapping> mappings = new()
@@ -29,7 +29,7 @@ List<ItemMapping> mappings = new()
   new ItemMapping(10, "DivisibleBy10"),
 };
 
-var itemMapper = new ModulusItemMapper(mappings)
+var itemMapper = new EvenlyDivisibleItemMapper(mappings)
 
 var app = new ItemsRetriever(itemMapper);
 var items = app.GetItems(100);
