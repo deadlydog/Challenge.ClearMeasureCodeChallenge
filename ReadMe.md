@@ -19,7 +19,7 @@ Assuming the `CodeChallenge.Console` project is set as the startup project, you 
 
 ### Using the CustomerItems library
 
-Once you have the `CustomerItems` NuGet package installed on your project, you can use the default `EvenlyDivisibleItemMapper` class to map items, like this:
+Once you have the `CustomerItems` NuGet package installed in your project, you can use the default `EvenlyDivisibleItemMapper` class to map items, like this:
 
 ```csharp
 List<ItemMapping> mappings = new()
@@ -53,6 +53,8 @@ DivisibleBy5 DivisibleBy10
 11
 ...
 ```
+
+You can create your own `mappings` list with as many or as few `ItemMapping`s as you like.
 
 ### Providing your own item mapper
 
