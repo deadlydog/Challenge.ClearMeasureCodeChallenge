@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerItems.Tests", "CustomerItems.Tests\CustomerItems.Tests.csproj", "{79537CA2-8B9C-4DEA-BBCD-ED3B7354D034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerItems.UnitTests", "CustomerItems.Tests\CustomerItems.UnitTests.csproj", "{79537CA2-8B9C-4DEA-BBCD-ED3B7354D034}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeChallenge.Console", "CodeChallenge.Console\CodeChallenge.Console.csproj", "{ADA28549-EE83-40E8-9FB0-D69F45242D03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerItems", "CustomerItems\CustomerItems.csproj", "{E86EE318-AD09-44DF-B063-20CA8248F962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerItems", "CustomerItems\CustomerItems.csproj", "{E86EE318-AD09-44DF-B063-20CA8248F962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
