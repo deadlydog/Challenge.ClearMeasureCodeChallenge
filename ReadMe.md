@@ -17,9 +17,9 @@ We also want to create a build script that can be used to build the NuGet packag
 To view the code, open the [CodeChallenge.sln](src/CodeChallenge/CodeChallenge.sln) solution in Visual Studio.
 Assuming the `CodeChallenge.Console` project is set as the startup project, you can run the app to see the sample output produced by the [Program.cs file](src/CodeChallenge/CodeChallenge.Console/Program.cs).
 
-### Using the NuGet library
+### Using the CustomerItems library
 
-Once you have the NuGet package installed on your project, you can use the default `EvenlyDivisibleItemMapper` class to map items, like this:
+Once you have the `CustomerItems` NuGet package installed on your project, you can use the default `EvenlyDivisibleItemMapper` class to map items, like this:
 
 ```csharp
 List<ItemMapping> mappings = new()
@@ -57,6 +57,7 @@ DivisibleBy5 DivisibleBy10
 ### Providing your own item mapper
 
 If you do not want items returned based on if the index is evenly divisible by a number, you can create your own item mapper by implementing the `IMapItems` interface.
+This was not required by the challenge, but shows that the library is extensible, allowing future use cases to be more easily supported.
 
 Here is an example of an item mapper that returns the letter of the alphabet that corresponds to the number provided:
 
@@ -85,3 +86,13 @@ See [the Contributing page](docs/Contributing.md) for details on building and ru
 ## ⏪ Changelog
 
 See what's changed in the application over time by viewing [the changelog](Changelog.md).
+
+## 💡 Improvement ideas
+
+A list of potential improvements to make if the project were to grow in complexity:
+
+- Allow the `ItemsRetriever` class to take a `Microsoft.Extensions.Logging.ILogger` in the constructor to log messages.
+  - Similarly, could implement OpenTelemetry to emit traces and metrics.
+- Setup an automated CI/CD pipeline to build and test the application automatically from GitHub.
+- Create a runbook for the application to help with troubleshooting and maintenance.
+- Create an architecture diagram to show how the application is structured.
